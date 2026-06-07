@@ -92,7 +92,7 @@ Este proyecto forma parte de mi portfolio como desarrollador y busca replicar fu
 
 ## 📸 Evolución del proyecto
 
-Se irán agregando capturas y avances a medida que el proyecto evolucione.
+![](docs/v0-estructura.png)
 
 ---
 
