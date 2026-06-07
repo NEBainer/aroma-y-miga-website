@@ -6,7 +6,13 @@
 
     <title>Aroma & Miga | Café de Especialidad</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <!-- Tipografia  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -29,15 +35,24 @@
     <main>
 
         <section id="hero">
-            <div class = "hero-content">
-                <h1>
-                    Cafe de especialidad y brunch artesanal
-                </h1>
-                <p> 
-                    Un espacio pensado para disfrutar buenos momentos, sabores únicos y café de primera calidad.
+
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="video\cafe.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+            </video>
+
+            <div class="overlay"></div>
+
+            <div class="hero-content">
+                <h1>Café de especialidad y brunch artesanal</h1>
+
+                <p>
+                    Un espacio pensado para disfrutar buenos momentos,
+                    sabores únicos y café de primera calidad.
                 </p>
-                <a href = "#productos">
-                    Ver menu
+
+                <a href="#productos" class="btn">
+                    Ver Menú
                 </a>
             </div>
 
