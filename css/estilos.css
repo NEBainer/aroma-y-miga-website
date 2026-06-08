@@ -146,17 +146,41 @@ nav a:hover {
 /* ------- QUERIES --------- */
 @media (max-width: 768px) {
 
+    /* Queries para el nav */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Queries para el hero */
+
     #hero {
-        height: 60vh;
-        min-height: 400px;
+        height: 55vh;
+        min-height: 350px;
+    }
+
+    .hero-content {
+        width: 90%;
     }
 
     .hero-content h1 {
         font-size: 2rem;
+        line-height: 1.2;
     }
 
     .hero-content p {
         font-size: 1rem;
     }
 
+    /* Queries para el boton */
+    .btn {
+        padding: 12px 24px;
+    }
 }

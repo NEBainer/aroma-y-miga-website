@@ -39,8 +39,8 @@ Este proyecto forma parte de mi portfolio como desarrollador y busca replicar fu
 ### Versión 1 - Landing Page
 
 - [x] Estructura inicial del proyecto
-- [ ] Navbar
-- [ ] Hero Section
+- [x] Navbar
+- [x] Hero Section
 - [ ] Productos Destacados
 - [ ] Promociones
 - [ ] Historia
@@ -93,6 +93,7 @@ Este proyecto forma parte de mi portfolio como desarrollador y busca replicar fu
 ## 📸 Evolución del proyecto
 
 ![](docs/v0-estructura.png)
+![estructura con video](docs/v0-estructura.png)
 
 ---
 
