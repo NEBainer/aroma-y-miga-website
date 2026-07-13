@@ -1,6 +1,7 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const header = document.querySelector("header");
+const reveals = document.querySelectorAll(".reveal");
 
 menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
@@ -18,4 +19,17 @@ window.addEventListener("scroll", () => {
     } else {
         header.classList.remove("scrolled");
     }
+});
+
+window.addEventListener("scroll", () => {
+    reveals.forEach((element) => {
+
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            element.classList.add("active");
+        }
+
+    });
 });
