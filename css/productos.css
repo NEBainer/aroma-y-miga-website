@@ -1,0 +1,93 @@
+/* --------------- PAGINA PRODUCTOS -------------- */
+
+/* PRODUCTOS-HERO */
+.productos-hero{
+    padding: 140px 20px 70px;
+    text-align: center;
+    background-color: #f8f5f2;
+}
+
+.productos-hero-content{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.productos-hero h1{
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    color: #3b2a23;
+    margin-bottom: 1rem;
+}
+
+.productos-hero p{
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+/* CATEGORIAS DE PRODUCTOS*/
+.categorias{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    gap:1rem;
+
+    padding:40px 20px;
+
+}
+/*BOTONES DE PRODUCTOS*/
+.categoria-btn{
+
+    padding:12px 24px;
+
+    border:2px solid #6f4e37;
+
+    background:white;
+
+    color:#6f4e37;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:1rem;
+
+}
+
+/*EFECTOS DE BOTONES PRODUCTOS */
+.categoria-btn:hover{
+
+    background:#6f4e37;
+
+    color:white;
+
+}
+
+.categoria-btn.active{
+
+    background:#6f4e37;
+
+    color:white;
+
+}
+
+/*CATALOGO PRODUCTOS*/
+.catalogo{
+
+    width:min(1200px,90%);
+    margin:0 auto 80px;
+
+}
+
+#productos-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:2rem;
+
+}

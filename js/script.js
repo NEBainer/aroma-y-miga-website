@@ -13,13 +13,13 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     });
 });
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
-});
+if (window.location.pathname.includes("productos.html")) {
+    header.classList.add("scrolled");
+} else {
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+}
 
 window.addEventListener("scroll", () => {
     reveals.forEach((element) => {
