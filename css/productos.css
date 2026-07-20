@@ -91,3 +91,9 @@
     gap:2rem;
 
 }
+
+.precio{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8B5E3C;
+}

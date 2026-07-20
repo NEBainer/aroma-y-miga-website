@@ -33,3 +33,5 @@ window.addEventListener("scroll", () => {
 
     });
 });
+
+renderProductos(productos);
