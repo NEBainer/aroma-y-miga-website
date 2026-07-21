@@ -121,7 +121,7 @@ nav a:hover {
 }
 
 .card {
-    width: 320px;
+    width: 100%;;
 
     background-color: white;
 
@@ -131,11 +131,14 @@ nav a:hover {
 
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 
-    transition: transform 0.3s ease;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 
 .card:hover img {
@@ -188,7 +191,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 18px;
 }
 
 .footer-links a,
@@ -382,6 +385,13 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
+    }
+
+    .footer-links a,
+    .footer-social a{
+
+        font-size:.95rem;
+
     }
 
     .footer-container {
