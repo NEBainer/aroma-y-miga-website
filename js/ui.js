@@ -1,6 +1,9 @@
 function renderProductos(listaProductos) {
+    
 
     const contenedor = document.getElementById("productos-container");
+
+    contenedor.innerHTML = "";
 
     listaProductos.forEach(producto => {
 

@@ -34,4 +34,23 @@ window.addEventListener("scroll", () => {
     });
 });
 
-renderProductos(productos);
+//Renderizamos todos los productos o solo los destacados segun la pagina
+const contenedor = document.getElementById("productos-container");
+
+if (contenedor) {
+
+    if (window.location.pathname.includes("productos.html")) {
+
+        renderProductos(productos);
+
+    } else {
+
+        const destacados = productos.filter(
+            producto => producto.destacado
+        );
+
+        renderProductos(destacados);
+
+    }
+
+}
