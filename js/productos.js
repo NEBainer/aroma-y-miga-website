@@ -30,6 +30,8 @@ class Producto {
 
 const productos = [
 
+    // ---------- DESTACADOS ----------
+
     new Producto(
         1,
         "Flat White",
@@ -37,7 +39,8 @@ const productos = [
         4200,
         "Cafés",
         "img/Cafes/flatWhite.jpg",
-        true
+        true,
+        ["sinLactosa"]
     ),
 
     new Producto(
@@ -46,7 +49,9 @@ const productos = [
         "Pan de masa madre con palta fresca.",
         5900,
         "Brunch",
-        "img/Brunchs/avocadoToast.jpg"
+        "img/Brunchs/avocadoToast.jpg",
+        false,
+        ["vegano"]
     ),
 
     new Producto(
@@ -58,6 +63,7 @@ const productos = [
         "img/Pasteleria/cheescake.jpg",
         true
     ),
+
     // ---------- CAFÉS ----------
 
     new Producto(
@@ -67,7 +73,8 @@ const productos = [
         4500,
         "Cafés",
         "img/Cafes/latte.jpg",
-        true
+        true,
+        ["sinLactosa"]
     ),
 
     new Producto(
@@ -76,7 +83,9 @@ const productos = [
         "Espresso, leche vaporizada y espuma cremosa.",
         4600,
         "Cafés",
-        "img/Cafes/cappuccino.jpg"
+        "img/Cafes/cappuccino.jpg",
+        false,
+        ["sinLactosa"]
     ),
 
     new Producto(
@@ -85,7 +94,9 @@ const productos = [
         "Doble shot de café de especialidad.",
         3600,
         "Cafés",
-        "img/Cafes/espresso.jpg"
+        "img/Cafes/espresso.jpg",
+        false,
+        ["vegano", "sinTacc"]
     ),
 
     // ---------- PASTELERÍA ----------
@@ -167,7 +178,7 @@ const productos = [
         "Infusiones",
         "img/Infusiones/teVerde.jpg",
         false,
-        ["vegano"]
+        ["vegano", "sinTacc"]
     ),
 
     // ---------- BEBIDAS ----------
@@ -195,13 +206,14 @@ const productos = [
     ),
 
     new Producto(
-        16,
-        "Jugo de Frutos rojos",
-        "Jugo hecho con los frutos rojos mas frescos.",
+        17,
+        "Jugo de Frutos Rojos",
+        "Jugo hecho con los frutos rojos más frescos.",
         5000,
         "Bebidas",
         "img/Bebidas/jugoRojo.jpg",
         false,
         ["vegano", "sinTacc"]
     )
+
 ];
