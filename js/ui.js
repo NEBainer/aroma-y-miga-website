@@ -1,3 +1,5 @@
+let timeoutBusqueda;
+
 const botonesCategorias = document.querySelectorAll(".categoria-btn");
 
 const contenedorProductos = document.getElementById("productos-container");
@@ -176,8 +178,13 @@ buscador.addEventListener("input", () => {
 
     estado.busqueda = buscador.value;
 
-    actualizarCatalogo();
+    clearTimeout(timeoutBusqueda);
+
+    timeoutBusqueda = setTimeout(() => {
+
+        actualizarCatalogo();
+
+    }, 300);
 
 });
-
 
