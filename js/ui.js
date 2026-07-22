@@ -1,5 +1,13 @@
 const botonesCategorias = document.querySelectorAll(".categoria-btn");
+
 const contenedorProductos = document.getElementById("productos-container");
+
+const buscador = document.getElementById("buscador");
+
+const estado = {
+    categoria: "Todos",
+    busqueda: ""
+};
 
 function actualizarBotones(botonActivo) {
 
@@ -11,25 +19,45 @@ function actualizarBotones(botonActivo) {
 
 }
 
-function filtrarProductos(categoria) {
+function filtrarProductos() {
 
-    if (categoria === "Todos") {
-        return productos;
+    let resultado = productos;
+
+    if (estado.categoria !== "Todos") {
+
+        resultado = resultado.filter(producto =>
+            producto.categoria === estado.categoria
+        );
+
     }
 
-    return productos.filter(producto =>
-        producto.categoria === categoria
-    );
+    if (estado.busqueda !== "") {
+
+        resultado = resultado.filter(producto =>
+
+            producto.nombre
+                .toLowerCase()
+                .includes(
+                    estado.busqueda.toLowerCase()
+                )
+
+        );
+
+    }
+
+    return resultado;
 
 }
 
-function actualizarCatalogo(listaProductos) {
+function actualizarCatalogo() {
+
+    const productosFiltrados = filtrarProductos();
 
     contenedorProductos.classList.add("oculto");
 
     setTimeout(() => {
 
-        renderProductos(listaProductos);
+        renderProductos(productosFiltrados);
 
         contenedorProductos.classList.remove("oculto");
 
@@ -37,25 +65,7 @@ function actualizarCatalogo(listaProductos) {
 
 }
 
-botonesCategorias.forEach(botonCategoria => {
-
-    botonCategoria.addEventListener("click", () => {
-
-        const categoria = botonCategoria.textContent;
-
-        const productosFiltrados = filtrarProductos(categoria);
-
-        actualizarBotones(botonCategoria);
-
-        actualizarCatalogo(productosFiltrados);
-
-    });
-
-});
-
 function renderProductos(listaProductos) {
-
-    contenedorProductos
 
     contenedorProductos.innerHTML = "";
 
@@ -95,5 +105,27 @@ function renderProductos(listaProductos) {
         contenedorProductos.appendChild(card);
 
     });
-
 }
+
+botonesCategorias.forEach(botonCategoria => {
+
+    botonCategoria.addEventListener("click", () => {
+        
+        estado.categoria = botonCategoria.textContent;
+        
+        actualizarBotones(botonCategoria);
+
+        actualizarCatalogo();
+    });
+    
+});
+
+buscador.addEventListener("input", () => {
+
+    estado.busqueda = buscador.value;
+
+    actualizarCatalogo();
+
+});
+
+
