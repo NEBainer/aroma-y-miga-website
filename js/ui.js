@@ -4,10 +4,52 @@ const contenedorProductos = document.getElementById("productos-container");
 
 const buscador = document.getElementById("buscador");
 
+const contadorProductos = document.getElementById("contador-productos");
+
 const estado = {
     categoria: "Todos",
     busqueda: ""
 };
+
+function renderEstadoVacio(){
+
+    contenedorProductos.innerHTML = `
+
+        <div class="estado-vacio">
+
+            <span>🔍</span>
+
+            <h3>No encontramos productos</h3>
+
+            <p>
+                Probá con otra búsqueda
+                o seleccioná otra categoría.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+function actualizarContador(cantidad) {
+
+    contadorProductos.classList.add("visible");
+
+    if (cantidad === 0) {
+
+        contadorProductos.textContent = "No se encontraron productos";
+
+        return;
+
+    }
+
+    contadorProductos.textContent =
+        cantidad === 1
+            ? "Mostrando 1 producto"
+            : `Mostrando ${cantidad} productos`;
+
+}
 
 function actualizarBotones(botonActivo) {
 
@@ -53,11 +95,21 @@ function actualizarCatalogo() {
 
     const productosFiltrados = filtrarProductos();
 
+    actualizarContador(productosFiltrados.length);
+
     contenedorProductos.classList.add("oculto");
 
     setTimeout(() => {
 
-        renderProductos(productosFiltrados);
+        if (productosFiltrados.length === 0) {
+
+            renderEstadoVacio();
+
+        } else {
+
+            renderProductos(productosFiltrados);
+
+        }
 
         contenedorProductos.classList.remove("oculto");
 

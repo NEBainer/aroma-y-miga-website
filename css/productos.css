@@ -124,6 +124,58 @@
 
 }
 
+/*CONTADOR DE PRODUCTOS*/
+#contador-productos{
+
+    display:none;
+
+    width:min(1200px,90%);
+
+    margin:0 auto 20px;
+
+    color:#777;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+}
+
+#contador-productos.visible{
+
+    display:block;
+
+}
+
+/*ESTADO VACIO*/
+.estado-vacio{
+
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+.estado-vacio h3{
+
+    margin:20px 0 10px;
+
+    font-family:"Playfair Display", serif;
+
+    color:var(--color-primario);
+
+}
+
+.estado-vacio p{
+
+    color:#777;
+
+    line-height:1.7;
+
+}
+
 /*CATALOGO PRODUCTOS*/
 .catalogo{
 
