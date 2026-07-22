@@ -192,5 +192,16 @@ const productos = [
         "img/Bebidas/jugoNaranja.jpg",
         false,
         ["vegano", "sinTacc"]
+    ),
+
+    new Producto(
+        16,
+        "Jugo de Frutos rojos",
+        "Jugo hecho con los frutos rojos mas frescos.",
+        5000,
+        "Bebidas",
+        "img/Bebidas/jugoRojo.jpg",
+        false,
+        ["vegano", "sinTacc"]
     )
 ];
