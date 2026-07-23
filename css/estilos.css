@@ -162,6 +162,82 @@ nav a:hover {
     margin-bottom: 10px;
 }
 
+/* --------- BADGES ---------- */
+.producto-badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.5rem;
+
+    margin-top:.8rem;
+
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:.35rem;
+
+    padding:.28rem .65rem;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+    user-select:none;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+.badge:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.badge-vegano{
+
+    background:#EDF8F0;
+    border:1px solid #CDE8D3;
+    color:#2E7D32;
+
+}
+
+.badge-sintacc{
+
+    background:#FFF8E5;
+    border:1px solid #F2E2A7;
+    color:#A66A00;
+
+}
+
+.badge-sinlactosa{
+
+    background:#EAF4FF;
+    border:1px solid #C7DFF7;
+    color:#1565C0;
+
+}
+
+.badge i{
+
+    font-size:.8rem;
+
+}
+
+.producto-badges{
+    margin: 1rem 0;
+}
 
 
 /* ---------------- FOOTER ---------------- */

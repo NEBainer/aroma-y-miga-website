@@ -13,6 +13,39 @@ const estado = {
     busqueda: ""
 };
 
+function crearBadges(producto) {
+
+    if (producto.etiquetas.length === 0) {
+
+        return null;
+
+    }
+
+    const contenedor = document.createElement("div");
+    contenedor.classList.add("producto-badges");
+
+    producto.etiquetas.forEach(etiqueta => {
+
+        const datosBadge = BADGES[etiqueta];
+
+        if (!datosBadge) return;
+
+        const badge = document.createElement("span");
+        badge.classList.add("badge", datosBadge.clase);
+
+        badge.innerHTML = `
+            <i class="${datosBadge.icono}"></i>
+            ${datosBadge.texto}
+        `;
+
+        contenedor.appendChild(badge);
+
+    });
+
+    return contenedor;
+
+}
+
 function renderEstadoVacio(){
 
     contenedorProductos.innerHTML = `
@@ -144,6 +177,8 @@ function renderProductos(listaProductos) {
 
         descripcion.textContent = producto.descripcion;
 
+        const badges = crearBadges(producto);
+
         const precio = document.createElement("span");
         precio.classList.add("precio");
 
@@ -151,6 +186,9 @@ function renderProductos(listaProductos) {
 
         contenido.appendChild(titulo);
         contenido.appendChild(descripcion);
+        if (badges) {
+            contenido.appendChild(badges);
+        }
         contenido.appendChild(precio);
 
         card.appendChild(imagen);
