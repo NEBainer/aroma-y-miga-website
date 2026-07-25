@@ -8,17 +8,84 @@ const buscador = document.getElementById("buscador");
 
 const contadorProductos = document.getElementById("contador-productos");
 
+const modal = document.getElementById("modal-producto");
+
+const modalImagen =
+    document.getElementById("modal-imagen");
+
+const modalTitulo =
+    document.getElementById("modal-titulo");
+
+const modalDescripcion =
+    document.getElementById("modal-descripcion");
+
+const modalBadges =
+    document.getElementById("modal-badges");
+
+const modalPrecio =
+    document.getElementById("modal-precio");
+
+const botonCerrarModal =
+    document.getElementById("modal-cerrar");
+
 const estado = {
     categoria: "Todos",
     busqueda: ""
 };
 
+function cargarProductoModal(producto){
+
+    modalImagen.src = producto.imagen;
+
+    modalImagen.alt = producto.nombre;
+
+    modalTitulo.textContent = producto.nombre;
+
+    modalDescripcion.textContent = producto.descripcion;
+
+    modalPrecio.textContent =
+        `$${producto.precio.toLocaleString("es-AR")}`;
+
+    modalBadges.innerHTML = "";
+
+    const badges = crearBadges(producto);
+
+    if (badges){
+
+        modalBadges.appendChild(badges);
+
+    }
+
+}
+
+function abrirModal(producto){
+
+    if(!producto) return;
+
+    botonCerrarModal.focus();
+
+    cargarProductoModal(producto);
+
+    modal.classList.add("abierto");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+function cerrarModal(){
+
+    if (!modal.classList.contains("abierto")) return;
+
+    modal.classList.remove("abierto");
+
+    document.body.style.overflow = "";
+
+}
+
 function crearBadges(producto) {
 
     if (producto.etiquetas.length === 0) {
-
         return null;
-
     }
 
     const contenedor = document.createElement("div");
@@ -196,8 +263,19 @@ function renderProductos(listaProductos) {
 
         contenedorProductos.appendChild(card);
 
+        card.addEventListener("click", () => {
+
+            abrirModal(producto);
+
+        });
+
     });
 }
+
+botonCerrarModal.addEventListener(
+    "click",
+    cerrarModal
+);
 
 botonesCategorias.forEach(botonCategoria => {
 
@@ -225,4 +303,22 @@ buscador.addEventListener("input", () => {
     }, 300);
 
 });
+
+modal.addEventListener("click", (e) => {
+
+    if (e.target === modal) {
+        cerrarModal();
+    }
+
+});
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+        cerrarModal();
+    }
+
+});
+
+actualizarCatalogo();
 
