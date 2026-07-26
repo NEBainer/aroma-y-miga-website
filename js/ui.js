@@ -32,12 +32,63 @@ const selectorOrden = document.getElementById("orden");
 
 const botonesEtiquetas = document.querySelectorAll(".etiqueta-btn");
 
+const botonLimpiar = document.querySelector("#limpiar-filtros");
+
 const estado = {
     categoria: "Todos",
     busqueda: "",
     orden: "destacados",
     etiquetas: []
 };
+
+function actualizarBotonLimpiar(){
+
+    const hayFiltros =
+
+        estado.categoria !== "Todos" ||
+
+        estado.busqueda !== "" ||
+
+        estado.etiquetas.length > 0;
+
+    botonLimpiar.classList.toggle(
+        "visible",
+        hayFiltros
+    );
+
+}
+
+function sincronizarControles(){
+
+    // Categorías
+    botonesCategorias.forEach(boton => {
+
+        boton.classList.toggle(
+            "active",
+            boton.textContent === estado.categoria
+        );
+
+    });
+
+    // Etiquetas
+    botonesEtiquetas.forEach(boton => {
+
+        boton.classList.toggle(
+            "active",
+            estado.etiquetas.includes(
+                boton.dataset.etiqueta
+            )
+        );
+
+    });
+
+    // Buscador
+    buscador.value = estado.busqueda;
+
+    // Orden
+    selectorOrden.value = estado.orden;
+
+}
 
 
 function ordenarProductos(listaProductos){
@@ -217,16 +268,6 @@ function actualizarContador(cantidad) {
 
 }
 
-function actualizarBotones(botonActivo) {
-
-    botonesCategorias.forEach(btn => {
-        btn.classList.remove("active");
-    });
-
-    botonActivo.classList.add("active");
-
-}
-
 function filtrarProductos() {
 
     let resultado = productos;
@@ -280,6 +321,10 @@ function actualizarCatalogo() {
     actualizarContador(productosOrdenados.length);
 
     contenedorProductos.classList.add("oculto");
+
+    actualizarBotonLimpiar();
+
+    sincronizarControles();
 
     setTimeout(() => {
 
@@ -359,8 +404,6 @@ botonesCategorias.forEach(botonCategoria => {
     botonCategoria.addEventListener("click", () => {
         
         estado.categoria = botonCategoria.textContent;
-        
-        actualizarBotones(botonCategoria);
 
         actualizarCatalogo();
     });
@@ -420,16 +463,11 @@ botonesEtiquetas.forEach(boton=>{
                 estado.etiquetas.filter(
                     e=>e!==etiqueta
                 );
-
-            boton.classList.remove("active");
-
         }
 
         else{
 
             estado.etiquetas.push(etiqueta);
-
-            boton.classList.add("active");
 
         }
 
@@ -438,6 +476,21 @@ botonesEtiquetas.forEach(boton=>{
     });
 
 });
+
+botonLimpiar.addEventListener("click",()=>{
+
+    estado.categoria = "Todos";
+
+    estado.busqueda = "";
+
+    estado.orden = "destacados";
+
+    estado.etiquetas = [];
+
+    actualizarCatalogo();
+
+});
+
 
 if (window.location.pathname.includes("productos.html")) {
 
