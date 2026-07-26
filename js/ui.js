@@ -272,10 +272,7 @@ function renderProductos(listaProductos) {
     });
 }
 
-botonCerrarModal.addEventListener(
-    "click",
-    cerrarModal
-);
+botonCerrarModal?.addEventListener("click", cerrarModal);
 
 botonesCategorias.forEach(botonCategoria => {
 
@@ -290,7 +287,7 @@ botonesCategorias.forEach(botonCategoria => {
     
 });
 
-buscador.addEventListener("input", () => {
+buscador?.addEventListener("input", () => {
 
     estado.busqueda = buscador.value;
 
@@ -304,7 +301,7 @@ buscador.addEventListener("input", () => {
 
 });
 
-modal.addEventListener("click", (e) => {
+modal?.addEventListener("click", (e) => {
 
     if (e.target === modal) {
         cerrarModal();
@@ -320,5 +317,9 @@ document.addEventListener("keydown", (e) => {
 
 });
 
-actualizarCatalogo();
+if (window.location.pathname.includes("productos.html")) {
+
+    actualizarCatalogo();
+
+}
 

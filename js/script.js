@@ -1,56 +1,112 @@
+/* ===========================
+            DOM
+=========================== */
+
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const header = document.querySelector("header");
 const reveals = document.querySelectorAll(".reveal");
+const contenedor = document.getElementById("productos-container");
 
-menuToggle.addEventListener("click", () => {
+
+/* ===========================
+      MENÚ HAMBURGUESA
+=========================== */
+
+function abrirMenu() {
+
+    navLinks.classList.add("active");
+
+}
+
+function cerrarMenu() {
+
+    navLinks.classList.remove("active");
+
+}
+
+function toggleMenu() {
+
     navLinks.classList.toggle("active");
+
+}
+
+menuToggle?.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    toggleMenu();
+
+});
+
+navLinks?.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+});
+
+document.addEventListener("click", () => {
+
+    cerrarMenu();
+
 });
 
 document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
+
+    link.addEventListener("click", cerrarMenu);
+
 });
 
+
+/* ===========================
+       HEADER SCROLL
+=========================== */
+
 if (window.location.pathname.includes("productos.html")) {
-    header.classList.add("scrolled");
+
+    header?.classList.add("scrolled");
+
 } else {
+
     window.addEventListener("scroll", () => {
-        header.classList.toggle("scrolled", window.scrollY > 50);
+
+        header?.classList.toggle("scrolled", window.scrollY > 50);
+
     });
+
 }
 
+
+/* ===========================
+      REVEAL ANIMATION
+=========================== */
+
 window.addEventListener("scroll", () => {
-    reveals.forEach((element) => {
+
+    reveals.forEach(element => {
 
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
 
         if (elementTop < windowHeight - 100) {
+
             element.classList.add("active");
+
         }
 
     });
+
 });
 
-//Renderizamos todos los productos o solo los destacados segun la pagina
-const contenedor = document.getElementById("productos-container");
 
-if (contenedor) {
+/* ===========================
+    PRODUCTOS DESTACADOS
+=========================== */
 
-    if (window.location.pathname.includes("productos.html")) {
+if (contenedor && !window.location.pathname.includes("productos.html")) {
 
-        renderProductos(productos);
+    const destacados = productos.filter(producto => producto.destacado);
 
-    } else {
-
-        const destacados = productos.filter(
-            producto => producto.destacado
-        );
-
-        renderProductos(destacados);
-
-    }
+    renderProductos(destacados);
 
 }
