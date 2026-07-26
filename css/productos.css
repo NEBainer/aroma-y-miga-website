@@ -90,11 +90,28 @@
 
 }
 
+/* ACCIONES DEL CATÁLOGO */
+
+.acciones-catalogo{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
 /*BARRA DE BUSQUEDA*/
 .busqueda{
 
-    width:100%;
-    max-width:650px;
+    flex:1;
 
 }
 
@@ -121,6 +138,65 @@
     outline:none;
 
     box-shadow:0 0 15px rgba(111,78,55,.15);
+
+}
+
+/*SECCION PARA ORDENAR LOS PRODUCTOS*/
+.ordenar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 18px;
+
+    height:54px;
+
+    border:2px solid #6F4E37;
+
+    border-radius:30px;
+
+    background:white;
+
+    flex-shrink:0;
+
+}
+
+.ordenar i{
+
+    color:#6F4E37;
+
+    font-size:1rem;
+
+}
+
+#orden{
+
+    border:none;
+
+    background:transparent;
+
+    outline:none;
+
+    font:inherit;
+
+    color:#3A2E2A;
+
+    cursor:pointer;
+
+}
+
+.ordenar:hover{
+
+    box-shadow:0 0 15px rgba(111,78,55,.12);
+
+}
+
+.ordenar:focus-within{
+
+    box-shadow:0 0 15px rgba(111,78,55,.18);
 
 }
 
@@ -249,4 +325,20 @@
 
     }
 
+}
+
+@media (max-width: 768px){
+    .acciones-catalogo{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .ordenar{
+
+        justify-content:center;
+
+    }
 }

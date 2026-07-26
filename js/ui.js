@@ -30,8 +30,68 @@ const botonCerrarModal =
 
 const estado = {
     categoria: "Todos",
-    busqueda: ""
+    busqueda: "",
+    orden: "destacados"
 };
+
+const selectorOrden = document.getElementById("orden");
+
+function ordenarProductos(listaProductos){
+
+    const productosOrdenados =
+        [...listaProductos];
+
+    switch(estado.orden){
+
+        case "precio-asc":
+
+            productosOrdenados.sort(
+                (a,b)=>a.precio-b.precio
+            );
+
+            break;
+
+        case "precio-desc":
+
+            productosOrdenados.sort(
+                (a,b)=>b.precio-a.precio
+            );
+
+            break;
+
+        case "nombre-asc":
+
+            productosOrdenados.sort(
+                (a,b)=>
+                    a.nombre.localeCompare(b.nombre)
+            );
+
+            break;
+
+        case "nombre-desc":
+
+            productosOrdenados.sort(
+                (a,b)=>
+                    b.nombre.localeCompare(a.nombre)
+            );
+
+            break;
+
+        case "destacados":
+
+            productosOrdenados.sort(
+                (a,b)=>
+                    Number(b.destacado) -
+                    Number(a.destacado)
+            );
+
+            break;
+
+    }
+
+    return productosOrdenados;
+
+}
 
 function cargarProductoModal(producto){
 
@@ -197,7 +257,9 @@ function actualizarCatalogo() {
 
     const productosFiltrados = filtrarProductos();
 
-    actualizarContador(productosFiltrados.length);
+    const productosOrdenados = ordenarProductos(productosFiltrados);
+
+    actualizarContador(productosOrdenados.length);
 
     contenedorProductos.classList.add("oculto");
 
@@ -209,7 +271,7 @@ function actualizarCatalogo() {
 
         } else {
 
-            renderProductos(productosFiltrados);
+            renderProductos(productosOrdenados);
 
         }
 
@@ -314,6 +376,14 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         cerrarModal();
     }
+
+});
+
+selectorOrden.addEventListener("change",()=>{
+
+    estado.orden = selectorOrden.value;
+
+    actualizarCatalogo();
 
 });
 
