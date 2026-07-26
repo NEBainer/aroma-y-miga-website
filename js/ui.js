@@ -28,13 +28,17 @@ const modalPrecio =
 const botonCerrarModal =
     document.getElementById("modal-cerrar");
 
+const selectorOrden = document.getElementById("orden");
+
+const botonesEtiquetas = document.querySelectorAll(".etiqueta-btn");
+
 const estado = {
     categoria: "Todos",
     busqueda: "",
-    orden: "destacados"
+    orden: "destacados",
+    etiquetas: []
 };
 
-const selectorOrden = document.getElementById("orden");
 
 function ordenarProductos(listaProductos){
 
@@ -249,6 +253,20 @@ function filtrarProductos() {
 
     }
 
+    if(estado.etiquetas.length>0){
+
+        resultado = resultado.filter(producto=>
+
+            estado.etiquetas.every(etiqueta=>
+
+                producto.etiquetas.includes(etiqueta)
+
+            )
+
+        );
+
+    }
+
     return resultado;
 
 }
@@ -384,6 +402,40 @@ selectorOrden.addEventListener("change",()=>{
     estado.orden = selectorOrden.value;
 
     actualizarCatalogo();
+
+});
+
+botonesEtiquetas.forEach(boton=>{
+
+    boton.addEventListener("click",()=>{
+
+        const etiqueta =
+            boton.dataset.etiqueta;
+
+        if(
+            estado.etiquetas.includes(etiqueta)
+        ){
+
+            estado.etiquetas =
+                estado.etiquetas.filter(
+                    e=>e!==etiqueta
+                );
+
+            boton.classList.remove("active");
+
+        }
+
+        else{
+
+            estado.etiquetas.push(etiqueta);
+
+            boton.classList.add("active");
+
+        }
+
+        actualizarCatalogo();
+
+    });
 
 });
 
