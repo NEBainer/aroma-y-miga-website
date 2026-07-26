@@ -457,6 +457,84 @@
     color: #8B5E3C;
 }
 
+/*-----------PAGINAS-----------*/
+#paginacion{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin:50px 0;
+
+}
+
+#paginacion button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:2px solid #8B5E3C;
+
+    color:#8B5E3C;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:
+        background .25s,
+        color .25s,
+        transform .2s,
+        box-shadow .2s;
+
+}
+
+#paginacion button:hover:not(:disabled){
+
+    background:#8B5E3C;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 16px rgba(0,0,0,.15);
+
+}
+
+#paginacion button.active{
+
+    background:#8B5E3C;
+
+    color:white;
+
+}
+
+
+#paginacion button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
 /* ------ Celulares ----- */
 @media (max-width: 480px){
 

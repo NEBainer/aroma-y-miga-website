@@ -10,23 +10,17 @@ const contadorProductos = document.getElementById("contador-productos");
 
 const modal = document.getElementById("modal-producto");
 
-const modalImagen =
-    document.getElementById("modal-imagen");
+const modalImagen = document.getElementById("modal-imagen");
 
-const modalTitulo =
-    document.getElementById("modal-titulo");
+const modalTitulo = document.getElementById("modal-titulo");
 
-const modalDescripcion =
-    document.getElementById("modal-descripcion");
+const modalDescripcion = document.getElementById("modal-descripcion");
 
-const modalBadges =
-    document.getElementById("modal-badges");
+const modalBadges = document.getElementById("modal-badges");
 
-const modalPrecio =
-    document.getElementById("modal-precio");
+const modalPrecio = document.getElementById("modal-precio");
 
-const botonCerrarModal =
-    document.getElementById("modal-cerrar");
+const botonCerrarModal = document.getElementById("modal-cerrar");
 
 const selectorOrden = document.getElementById("orden");
 
@@ -34,12 +28,140 @@ const botonesEtiquetas = document.querySelectorAll(".etiqueta-btn");
 
 const botonLimpiar = document.querySelector("#limpiar-filtros");
 
+const contenedorPaginacion = document.getElementById("paginacion");
+
 const estado = {
     categoria: "Todos",
     busqueda: "",
     orden: "destacados",
-    etiquetas: []
+    etiquetas: [],
+    pagina:1,
+    productosPorPagina:12
 };
+
+function subirAlCatalogo() {
+
+    buscador.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+}
+
+function reiniciarPaginacion() {
+    estado.pagina = 1;
+}
+
+function renderPaginacion(totalProductos){
+
+    contenedorPaginacion.innerHTML = "";
+
+    const totalPaginas = Math.ceil(
+        totalProductos / estado.productosPorPagina
+    );
+
+    if(totalPaginas <= 1){
+        return;
+    }
+
+    const botonAnterior = document.createElement("button");
+
+    botonAnterior.textContent = "←";
+
+    botonAnterior.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+
+    botonAnterior.disabled = estado.pagina === 1;
+
+    botonAnterior.classList.add("paginacion-nav");
+
+    botonAnterior.addEventListener("click", () => {
+
+        estado.pagina--;
+
+        actualizarCatalogo();
+
+        subirAlCatalogo();
+
+    });
+
+    contenedorPaginacion.appendChild(botonAnterior);
+    for(let pagina = 1; pagina <= totalPaginas; pagina++){
+
+        const boton = document.createElement("button");
+
+        boton.textContent = pagina;
+
+        boton.classList.toggle(
+            "active",
+            pagina === estado.pagina
+        );
+
+        boton.addEventListener("click", () => {
+
+            estado.pagina = pagina;
+
+            actualizarCatalogo();
+
+            subirAlCatalogo();
+
+        });
+
+        contenedorPaginacion.appendChild(boton);
+
+    }
+
+    const botonSiguiente = document.createElement("button");
+
+    botonSiguiente.textContent = "→";
+
+    botonSiguiente.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+    
+    botonSiguiente.classList.add("paginacion-nav");
+
+    botonSiguiente.disabled =
+
+        estado.pagina === totalPaginas;
+
+    botonSiguiente.addEventListener("click", () => {
+
+        estado.pagina++;
+
+        actualizarCatalogo();
+
+        subirAlCatalogo();
+
+    });
+
+    contenedorPaginacion.appendChild(botonSiguiente);
+
+}
+
+function paginarProductos(listaProductos){
+
+    const inicio =
+
+        (estado.pagina - 1) *
+
+        estado.productosPorPagina;
+
+    const fin =
+
+        inicio +
+
+        estado.productosPorPagina;
+
+    return listaProductos.slice(
+
+        inicio,
+
+        fin
+
+    );
+
+}
 
 function actualizarBotonLimpiar(){
 
@@ -249,22 +371,37 @@ function renderEstadoVacio(){
 
 }
 
-function actualizarContador(cantidad) {
+function actualizarContador(totalProductos) {
 
     contadorProductos.classList.add("visible");
 
-    if (cantidad === 0) {
+    if (totalProductos === 0) {
 
-        contadorProductos.textContent = "No se encontraron productos";
+        contadorProductos.textContent =
+            "No se encontraron productos";
 
         return;
+    }
 
+    const inicio =
+        (estado.pagina - 1) *
+        estado.productosPorPagina + 1;
+
+    const fin = Math.min(
+        estado.pagina * estado.productosPorPagina,
+        totalProductos
+    );
+
+    if (totalProductos === 1) {
+
+        contadorProductos.textContent =
+            "Mostrando 1 de 1 producto";
+
+        return;
     }
 
     contadorProductos.textContent =
-        cantidad === 1
-            ? "Mostrando 1 producto"
-            : `Mostrando ${cantidad} productos`;
+        `Mostrando ${inicio}–${fin} de ${totalProductos} productos`;
 
 }
 
@@ -318,6 +455,8 @@ function actualizarCatalogo() {
 
     const productosOrdenados = ordenarProductos(productosFiltrados);
 
+    const productosPaginados = paginarProductos(productosOrdenados);
+
     actualizarContador(productosOrdenados.length);
 
     contenedorProductos.classList.add("oculto");
@@ -334,7 +473,8 @@ function actualizarCatalogo() {
 
         } else {
 
-            renderProductos(productosOrdenados);
+            renderProductos(productosPaginados);
+            renderPaginacion(productosOrdenados.length);
 
         }
 
@@ -405,6 +545,8 @@ botonesCategorias.forEach(botonCategoria => {
         
         estado.categoria = botonCategoria.textContent;
 
+        reiniciarPaginacion();
+
         actualizarCatalogo();
     });
     
@@ -413,6 +555,8 @@ botonesCategorias.forEach(botonCategoria => {
 buscador?.addEventListener("input", () => {
 
     estado.busqueda = buscador.value;
+
+    reiniciarPaginacion();
 
     clearTimeout(timeoutBusqueda);
 
@@ -444,6 +588,8 @@ selectorOrden.addEventListener("change",()=>{
 
     estado.orden = selectorOrden.value;
 
+    reiniciarPaginacion();
+
     actualizarCatalogo();
 
 });
@@ -455,22 +601,16 @@ botonesEtiquetas.forEach(boton=>{
         const etiqueta =
             boton.dataset.etiqueta;
 
-        if(
-            estado.etiquetas.includes(etiqueta)
-        ){
+        if(estado.etiquetas.includes(etiqueta)){
 
-            estado.etiquetas =
-                estado.etiquetas.filter(
-                    e=>e!==etiqueta
-                );
+            estado.etiquetas = estado.etiquetas.filter(e=>e!==etiqueta);
         }
 
         else{
-
             estado.etiquetas.push(etiqueta);
-
         }
 
+        reiniciarPaginacion();
         actualizarCatalogo();
 
     });
@@ -486,6 +626,8 @@ botonLimpiar.addEventListener("click",()=>{
     estado.orden = "destacados";
 
     estado.etiquetas = [];
+
+    reiniciarPaginacion();
 
     actualizarCatalogo();
 
