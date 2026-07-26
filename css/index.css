@@ -1,7 +1,13 @@
 /* ---------------- SECCION HERO ---------------------------*/
 
 .hero-content h1 {
-    font-family: "Playfair Display", serif;
+
+    font-family:"Playfair Display", serif;
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
 }
 
 #hero {
@@ -58,11 +64,6 @@
     padding: 20px;
 }
 
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
 .hero-content p {
     font-size: 1.2rem;
     line-height: 1.6;
@@ -83,6 +84,8 @@
 }
 
 .promo-container {
+    max-width:850px;
+    margin:0 auto;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -90,6 +93,8 @@
 
 .promo-card {
     display: flex;
+
+    align-items:stretch;
 
     background-color: #F5F1EA;
 
@@ -109,7 +114,8 @@
 }
 
 .promo-card img {
-    width: 300px;
+    width: 340px;
+    height: auto;
     object-fit: cover;
 
     transition: transform 0.4s ease;
@@ -120,11 +126,17 @@
 }
 
 .promo-content {
-    padding: 30px;
+
+    flex: 1;
+
+    padding: 40px;
 
     display: flex;
+
     flex-direction: column;
-    justify-content: center;
+
+    justify-content: space-between;
+
 }
 
 .promo-content h3 {
@@ -132,8 +144,11 @@
 }
 
 .promo-content p {
-    margin-bottom: 20px;
+
+    flex: 1;
+
     line-height: 1.6;
+
 }
 
 .promo-price {
@@ -259,6 +274,13 @@
 .contacto-info,
 .contacto-form {
     flex: 1;
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .contacto-info h3 {
@@ -307,26 +329,6 @@
 
 .contacto-form textarea {
     resize: vertical;
-}
-
-.contacto-info {
-    background-color: white;
-
-    padding: 30px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.contacto-form {
-    background-color: white;
-
-    padding: 30px;
-
-    border-radius: 12px;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 /*-----Otros-------*/

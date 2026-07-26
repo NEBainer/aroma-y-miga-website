@@ -73,7 +73,7 @@ const productos = [
         4500,
         "Cafés",
         "img/Cafes/latte.jpg",
-        true,
+        false,
         ["sinLactosa"]
     ),
 
