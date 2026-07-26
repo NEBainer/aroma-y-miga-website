@@ -1,104 +1,95 @@
-# Aroma & Miga ☕
+# ☕ Aroma & Miga
 
-Proyecto de portfolio desarrollado para simular una cafetería moderna de especialidad.
+Sitio web responsive para una cafetería ficticia de especialidad, desarrollado como proyecto de práctica para fortalecer conocimientos de HTML, CSS y JavaScript.
 
-## 📌 Objetivo
-
-Diseñar y desarrollar una landing page profesional para una cafetería ficticia, aplicando buenas prácticas de desarrollo web y enfocándose en resolver necesidades reales de negocios gastronómicos.
-
-Este proyecto forma parte de mi portfolio como desarrollador y busca replicar funcionalidades y diseños que suelen utilizar cafeterías modernas para mejorar su presencia digital.
+El proyecto simula la presencia online de una cafetería moderna, con un catálogo interactivo de productos, promociones y secciones informativas.
 
 ---
 
-## 🚀 Características previstas
+## 🚀 Demo
 
-- Landing page responsive.
-- Hero con video institucional.
-- Productos destacados.
-- Promociones y novedades.
-- Historia de la marca.
-- Información de sucursales.
-- Formulario de contacto.
-- Integración con WhatsApp.
-- Diseño moderno y optimizado para dispositivos móviles.
+👉 https://nebainer.github.io/aroma-y-miga-website/
 
 ---
 
-## 🛠 Tecnologías utilizadas
+## 📸 Capturas
+
+![index](image.png)
+![productos](image-1.png)
+
+---
+
+## ✨ Funcionalidades
+
+- Landing page moderna y responsive.
+- Hero con video de fondo.
+- Catálogo dinámico de productos.
+- Modal con información detallada.
+- Filtrado por categorías.
+- Filtrado por etiquetas.
+- Buscador con debounce.
+- Ordenamiento de productos.
+- Combinación de filtros.
+- Paginación.
+- Estado vacío cuando no existen resultados.
+- Botón flotante de WhatsApp.
+- Animaciones y transiciones.
+- Navegación responsive con menú hamburguesa.
+
+---
+
+## 🛠 Tecnologías
 
 - HTML5
 - CSS3
-- JavaScript
-- Git
-- GitHub
+- JavaScript (ES6)
+- Font Awesome
+- Google Fonts
 
 ---
 
-## 📅 Roadmap
-
-### Versión 1 - Landing Page
-
-- [x] Estructura inicial del proyecto
-- [x] Navbar
-- [x] Hero Section
-- [ ] Productos Destacados
-- [ ] Promociones
-- [ ] Historia
-- [ ] Sucursales
-- [ ] Contacto
-- [ ] Footer
-- [ ] Responsive Design
-
-### Versión 2 - Funcionalidades
-
-- [ ] Menú completo interactivo
-- [ ] Sistema de reservas
-- [ ] Integración avanzada con WhatsApp
-- [ ] Formulario funcional
-
-### Versión 3 - Automatizaciones
-
-- [ ] Captación de leads
-- [ ] Newsletter
-- [ ] Automatizaciones de contacto
-- [ ] Programa de fidelización
-
----
-
-## 📂 Estructura del proyecto
+## 📁 Estructura del proyecto
 
 ```text
-/
-├── index.html
+📦 Aroma & Miga
+│
 ├── css/
-│   └── styles.css
+│   ├── estilos.css
+│   ├── index.css
+│   └── productos.css
+│
 ├── js/
+│   ├── productos.js
+│   ├── badges.js
+│   ├── ui.js
 │   └── script.js
+│
 ├── img/
-└── README.md
+├── video/
+│
+├── index.html
+└── productos.html
 ```
 
 ---
 
-## 🎯 Objetivos de aprendizaje
+## 🎯 Objetivos del proyecto
 
-- Mejorar habilidades de maquetación web.
-- Aplicar diseño responsive.
-- Practicar organización de proyectos reales.
-- Construir piezas de portfolio reutilizables para futuros clientes.
-- Simular el desarrollo de una solución digital para un negocio real.
+Este proyecto fue desarrollado para practicar conceptos fundamentales del desarrollo frontend:
 
----
-
-## 📸 Evolución del proyecto
-
-![](docs/v0-estructura.png)
-![estructura con video](docs/v0-estructura.png)
+- Manipulación del DOM.
+- Programación orientada a objetos.
+- Componentes reutilizables.
+- Manejo de estado.
+- Responsive Design.
+- Organización de archivos.
+- Buenas prácticas de JavaScript.
 
 ---
 
 ## 👨‍💻 Autor
 
-**Eze Bainer**
+**Ezequiel Bainer**
 
-Proyecto realizado con fines educativos, de práctica profesional y construcción de portfolio.
+- GitHub: https://github.com/NEBainer
+- LinkedIn: [LINKEDIN](https://www.linkedin.com/in/ezequielbainer/)
