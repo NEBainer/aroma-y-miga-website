@@ -7,6 +7,7 @@ const navLinks = document.querySelector(".nav-links");
 const header = document.querySelector("header");
 const reveals = document.querySelectorAll(".reveal");
 const contenedor = document.getElementById("productos-container");
+const botonWhatsapp = document.querySelector(".whatsapp-float");
 
 
 /* ===========================
@@ -95,6 +96,20 @@ window.addEventListener("scroll", () => {
         }
 
     });
+
+});
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 300){
+
+        botonWhatsapp.classList.add("visible");
+
+    }else{
+
+        botonWhatsapp.classList.remove("visible");
+
+    }
 
 });
 

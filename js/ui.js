@@ -118,7 +118,7 @@ function renderPaginacion(totalProductos){
     botonSiguiente.textContent = "→";
 
     botonSiguiente.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
-    
+
     botonSiguiente.classList.add("paginacion-nav");
 
     botonSiguiente.disabled =
@@ -632,7 +632,6 @@ botonLimpiar.addEventListener("click",()=>{
     actualizarCatalogo();
 
 });
-
 
 if (window.location.pathname.includes("productos.html")) {
 

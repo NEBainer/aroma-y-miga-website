@@ -522,6 +522,76 @@ footer {
 
 }
 
+/* WPP ICONO */
+.whatsapp-float{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:35px;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2rem;
+
+    text-decoration:none;
+
+    box-shadow:0 10px 28px rgba(37,211,102,.35);
+
+    transition:
+        opacity .3s,
+        transform .3s,
+        visibility .3s;
+
+    z-index:999;
+
+}
+
+.whatsapp-float.visible{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+.whatsapp-float:hover{
+
+    transform:translateY(-4px) scale(1.08);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.3);
+
+}
+
+.whatsapp-float:active{
+
+    transform:scale(.95);
+
+}
+
 /* ---------------- MOVILES ---------------- */
 
 @media (max-width: 768px) {
@@ -627,6 +697,21 @@ footer {
     .promo-card img {
         width: 100%;
         height: 250px;
+    }
+
+    /* WPP */
+    .whatsapp-float{
+
+        width:56px;
+
+        height:56px;
+
+        font-size:1.8rem;
+
+        right:18px;
+
+        bottom:18px;
+
     }
 
 
