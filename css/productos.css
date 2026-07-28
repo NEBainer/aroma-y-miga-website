@@ -2,7 +2,7 @@
 
 /* PRODUCTOS-HERO */
 .productos-hero{
-    padding: 140px 20px 70px;
+    padding: 140px 20px 20px;
     text-align: center;
     background-color: #f8f5f2;
 }
@@ -34,7 +34,7 @@
 
     gap:30px;
 
-    padding:45px 20px 55px;
+    padding:35px 20px 55px;
 
     background:#faf7f4;
 

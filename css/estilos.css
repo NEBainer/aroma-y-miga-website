@@ -688,17 +688,6 @@ footer {
         max-width: 450px;
     }
 
-    /* PROMOS */
-
-    .promo-card {
-        flex-direction: column;
-    }
-
-    .promo-card img {
-        width: 100%;
-        height: 250px;
-    }
-
     /* WPP */
     .whatsapp-float{
 
@@ -748,15 +737,11 @@ footer {
     }
 
     #productos h2,
-    #promociones h2,
+    #especialidad h2,
     #contacto h2,
     #sucursales h2,
     .historia-content h2 {
         font-size: 2rem;
-    }
-
-    .promo-content {
-        padding: 20px;
     }
 
     .footer-links,

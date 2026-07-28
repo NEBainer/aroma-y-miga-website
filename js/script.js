@@ -82,22 +82,25 @@ if (window.location.pathname.includes("productos.html")) {
       REVEAL ANIMATION
 =========================== */
 
-window.addEventListener("scroll", () => {
+const observer = new IntersectionObserver((entries) => {
 
-    reveals.forEach(element => {
+    entries.forEach(entry => {
 
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
+        if(entry.isIntersecting){
 
-        if (elementTop < windowHeight - 100) {
+            entry.target.classList.add("active");
 
-            element.classList.add("active");
+            observer.unobserve(entry.target);
 
         }
 
     });
 
+},{
+    threshold:0.7
 });
+
+reveals.forEach(reveal => observer.observe(reveal));
 
 window.addEventListener("scroll", () => {
 

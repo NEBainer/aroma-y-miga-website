@@ -117,7 +117,7 @@ const productos = [
         4900,
         "Cafés",
         "img/Cafes/mocha.jpg",
-        true,
+        false,
         ["sinLactosa"]
     ),
 
@@ -246,7 +246,7 @@ const productos = [
         7200,
         "Brunch",
         "img/Brunchs/wrapVege.jpg",
-        false,
+        true,
         ["vegano"]
     ),
 
@@ -310,7 +310,7 @@ const productos = [
         4900,
         "Infusiones",
         "img/Infusiones/matchaLatte.jpg",
-        true,
+        false,
         ["sinLactosa"]
     ),
 
