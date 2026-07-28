@@ -12,9 +12,15 @@ const modal = document.getElementById("modal-producto");
 
 const modalImagen = document.getElementById("modal-imagen");
 
+const modalCategoria = document.getElementById("modal-categoria");
+
 const modalTitulo = document.getElementById("modal-titulo");
 
 const modalDescripcion = document.getElementById("modal-descripcion");
+
+const modalIngredientes = document.getElementById("modal-ingredientes");
+
+const modalRecomendacion = document.getElementById("modal-recomendacion");
 
 const modalBadges = document.getElementById("modal-badges");
 
@@ -273,12 +279,15 @@ function ordenarProductos(listaProductos){
 function cargarProductoModal(producto){
 
     modalImagen.src = producto.imagen;
-
     modalImagen.alt = producto.nombre;
+
+    modalCategoria.textContent = producto.categoria;
 
     modalTitulo.textContent = producto.nombre;
 
-    modalDescripcion.textContent = producto.descripcion;
+    modalDescripcion.textContent = producto.descripcionLarga;
+
+    modalRecomendacion.textContent = producto.recomendacion;
 
     modalPrecio.textContent =
         `$${producto.precio.toLocaleString("es-AR")}`;
@@ -292,6 +301,18 @@ function cargarProductoModal(producto){
         modalBadges.appendChild(badges);
 
     }
+
+    modalIngredientes.innerHTML = "";
+
+    producto.ingredientes.forEach(ingrediente => {
+
+        const li = document.createElement("li");
+
+        li.textContent = ingrediente;
+
+        modalIngredientes.appendChild(li);
+
+    });
 
 }
 

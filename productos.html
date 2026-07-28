@@ -233,36 +233,129 @@
 
     <div id="modal-producto" class="modal">
 
-        <div class="modal-contenido">
+            <div class="modal-contenido">
 
-            <button id="modal-cerrar" class="modal-cerrar" aria-label="Cerrar">
+                <button
+                    id="modal-cerrar"
+                    class="modal-cerrar"
+                    aria-label="Cerrar"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
 
-                <i class="fa-solid fa-xmark"></i>
+                <img
+                    id="modal-imagen"
+                    class="modal-imagen"
+                    src=""
+                    alt=""
+                >
 
-            </button>
+                <div class="modal-info">
 
-            <img 
-                id="modal-imagen"
-                class="modal-imagen"
-                src=""
-                alt=""
-            >
+                    <header class="modal-header">
 
-            <div class="modal-info">
+                        <span
+                            id="modal-categoria"
+                            class="modal-categoria"
+                        ></span>
 
-                <h2 id="modal-titulo"></h2>
+                        <h2
+                            id="modal-titulo"
+                            class="modal-titulo"
+                        ></h2>
 
-                <p id="modal-descripcion"></p>
+                        <div
+                            id="modal-badges"
+                            class="producto-badges"
+                        ></div>
 
-                <div id="modal-badges" class="producto-badges"></div>
+                    </header>
 
-                <span id="modal-precio"></span>
+                    <section class="modal-seccion">
+
+                        <p
+                            id="modal-descripcion"
+                            class="modal-descripcion"
+                        ></p>
+
+                    </section>
+
+                    <section class="modal-seccion">
+
+                        <h3 class="modal-subtitulo">
+
+                            <i class="fa-solid fa-seedling"></i>
+
+                            Elaborado con
+
+                        </h3>
+
+                        <ul
+                            id="modal-ingredientes"
+                            class="modal-lista"
+                        ></ul>
+
+                    </section>
+
+                    <section class="modal-seccion">
+
+                        <h3 class="modal-subtitulo">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                            Nuestra recomendación
+
+                        </h3>
+
+                        <p
+                            id="modal-recomendacion"
+                            class="modal-recomendacion"
+                        ></p>
+
+                    </section>
+
+                    <footer class="modal-footer">
+
+                        <span
+                            id="modal-precio"
+                            class="modal-precio"
+                        ></span>
+
+                        <div class="modal-caracteristicas">
+
+                            <div class="modal-caracteristica">
+
+                                <i class="fa-solid fa-mug-hot"></i>
+
+                                <span>Preparado al momento</span>
+
+                            </div>
+
+                            <div class="modal-caracteristica">
+
+                                <i class="fa-solid fa-leaf"></i>
+
+                                <span>Ingredientes seleccionados</span>
+
+                            </div>
+
+                            <div class="modal-caracteristica">
+
+                                <i class="fa-solid fa-store"></i>
+
+                                <span>Disponible en nuestras sucursales</span>
+
+                            </div>
+
+                        </div>
+
+                    </footer>
+
+                </div>
 
             </div>
 
         </div>
-
-    </div>
 
     <script src="./js/productos.js"></script>
     <script src="./js/badges.js"></script>
