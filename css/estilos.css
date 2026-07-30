@@ -351,7 +351,7 @@ footer {
     opacity: 0;
     visibility: hidden;
 
-    transition: .25s ease;
+    transition: opacity .25s ease;
 
     z-index: 2000;
 
@@ -364,18 +364,23 @@ footer {
 
 }
 
+/*============================*/
+
 .modal-contenido{
 
     position: relative;
 
-    display: flex;
+    display: grid;
 
-    width: min(1000px, 95vw);
-    height: min(650px, 90vh);
+    grid-template-columns: minmax(330px, 330px) minmax(0, 1fr);
 
-    background: var(--color-blanco);
+    width: min(1000px,95vw);
 
-    border-radius: 1rem;
+    max-height: 90vh;
+
+    background: white;
+
+    border-radius: 18px;
 
     overflow: hidden;
 
@@ -383,29 +388,22 @@ footer {
 
 }
 
-/*======================
-        IMAGEN
-======================*/
+/*============================*/
 
 .modal-imagen{
 
-    width: 38%;
+    width: 100%;
     height: 100%;
 
     object-fit: cover;
-    object-position: center;
 
-    flex-shrink: 0;
+    display: block;
 
 }
 
-/*======================
-        INFO
-======================*/
+/*============================*/
 
 .modal-info{
-
-    flex: 1;
 
     display: flex;
     flex-direction: column;
@@ -414,11 +412,10 @@ footer {
 
     overflow-y: auto;
 
+    min-width: 0;
 }
 
-/*======================
-       HEADER
-======================*/
+/*============================*/
 
 .modal-header{
 
@@ -430,16 +427,17 @@ footer {
 
     display: inline-block;
 
-    margin-bottom: .75rem;
+    margin-bottom: .7rem;
+
+    color: #8B5E3C;
 
     font-size: .8rem;
-    font-weight: 700;
 
-    letter-spacing: .18rem;
+    font-weight: 600;
+
+    letter-spacing: .15rem;
 
     text-transform: uppercase;
-
-    color: var(--color-acento);
 
 }
 
@@ -447,10 +445,11 @@ footer {
 
     margin-bottom: 1rem;
 
-    font-size: 2.4rem;
-    font-family: var(--fuente-titulo);
+    font-family: "Playfair Display", serif;
 
-    color: var(--color-texto);
+    font-size: 2.3rem;
+
+    color: #3A2E2A;
 
     line-height: 1.2;
 
@@ -459,20 +458,20 @@ footer {
 #modal-badges{
 
     display: flex;
+
     flex-wrap: wrap;
+
     gap: .5rem;
 
 }
 
-/*======================
-      SECCIONES
-======================*/
+/*============================*/
 
 .modal-seccion{
 
-    padding: 1.75rem 0;
+    padding: 1.4rem 0;
 
-    border-top: 1px solid #e7e1d8;
+    border-top: 1px solid #ece6df;
 
 }
 
@@ -484,59 +483,65 @@ footer {
 
 }
 
-.modal-descripcion,
-.modal-recomendacion{
-
-    color: #5d5d5d;
+.modal-descripcion{
 
     line-height: 1.8;
 
-    font-size: .97rem;
+    color: #666;
 
 }
 
 .modal-subtitulo{
 
+    margin-bottom: .9rem;
+
     display: flex;
+
     align-items: center;
+
     gap: .6rem;
 
-    margin-bottom: 1rem;
+    color: #3A2E2A;
 
     font-size: 1rem;
-    font-weight: 600;
-
-    color: var(--color-texto);
 
 }
 
 .modal-subtitulo i{
 
-    color: var(--color-acento);
+    color: #8B5E3C;
 
 }
 
 .modal-lista{
 
-    display: flex;
-    flex-direction: column;
-    gap: .6rem;
-
     padding-left: 1.2rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .5rem;
+
+    color: #666;
+
+}
+
+.modal-recomendacion{
+
+    padding-left: 1rem;
+
+    border-left: 4px solid #D9B382;
+
+    font-style: italic;
 
     color: #555;
 
-}
-
-.modal-lista li{
-
-    line-height: 1.5;
+    line-height: 1.7;
 
 }
 
-/*======================
-        FOOTER
-======================*/
+/*============================*/
 
 .modal-footer{
 
@@ -544,56 +549,19 @@ footer {
 
     padding-top: 2rem;
 
-    border-top: 1px solid #e7e1d8;
-
 }
 
 .modal-precio{
 
-    display: block;
+    font-size:2.6rem;
 
-    margin-bottom: 2rem;
+    color:#8B5E3C;
 
-    font-size: 2.4rem;
-    font-weight: 700;
-
-    color: var(--color-acento);
+    font-weight:700;
 
 }
 
-.modal-caracteristicas{
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-}
-
-.modal-caracteristica{
-
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    color: #666;
-
-    font-size: .95rem;
-
-}
-
-.modal-caracteristica i{
-
-    width: 18px;
-
-    text-align: center;
-
-    color: var(--color-acento);
-
-}
-
-/*======================
-      BOTÓN CERRAR
-======================*/
+/*============================*/
 
 .modal-cerrar{
 
@@ -602,14 +570,11 @@ footer {
     top: 1rem;
     right: 1rem;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
 
     border: none;
+
     border-radius: 50%;
 
     background: rgba(255,255,255,.95);
@@ -618,9 +583,9 @@ footer {
 
     cursor: pointer;
 
-    transition: .2s ease;
+    z-index: 10;
 
-    z-index: 5;
+    transition: .2s;
 
 }
 
@@ -628,13 +593,9 @@ footer {
 
     transform: scale(1.08);
 
-    background: white;
-
 }
 
-/*======================
-        SCROLL
-======================*/
+/*============================*/
 
 .modal-info::-webkit-scrollbar{
 
@@ -644,7 +605,7 @@ footer {
 
 .modal-info::-webkit-scrollbar-thumb{
 
-    background: #d4cec5;
+    background: #d6d0c8;
 
     border-radius: 999px;
 

@@ -294,13 +294,11 @@ function cargarProductoModal(producto){
 
     modalBadges.innerHTML = "";
 
+    modalBadges.innerHTML = "";
+
     const badges = crearBadges(producto);
 
-    if (badges){
-
-        modalBadges.appendChild(badges);
-
-    }
+    modalBadges.replaceChildren(...badges.children);
 
     modalIngredientes.innerHTML = "";
 
@@ -340,23 +338,24 @@ function cerrarModal(){
 
 }
 
-function crearBadges(producto) {
-
-    if (producto.etiquetas.length === 0) {
-        return null;
-    }
+function crearBadges(producto){
 
     const contenedor = document.createElement("div");
+
     contenedor.classList.add("producto-badges");
 
-    producto.etiquetas.forEach(etiqueta => {
+    producto.etiquetas.forEach(etiqueta=>{
 
         const datosBadge = BADGES[etiqueta];
 
-        if (!datosBadge) return;
+        if(!datosBadge) return;
 
         const badge = document.createElement("span");
-        badge.classList.add("badge", datosBadge.clase);
+
+        badge.classList.add(
+            "badge",
+            datosBadge.clase
+        );
 
         badge.innerHTML = `
             <i class="${datosBadge.icono}"></i>
