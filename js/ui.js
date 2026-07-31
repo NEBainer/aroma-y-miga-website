@@ -289,8 +289,12 @@ function cargarProductoModal(producto){
 
     modalRecomendacion.textContent = producto.recomendacion;
 
-    modalPrecio.textContent =
-        `$${producto.precio.toLocaleString("es-AR")}`;
+    modalPrecio.textContent = `$${producto.precio.toLocaleString("es-AR")}`;
+
+    modalPrecio.innerHTML = `
+    <span class="modal-precio-label">Precio</span>
+    $${producto.precio.toLocaleString("es-AR")}
+`;
 
     modalBadges.innerHTML = "";
 

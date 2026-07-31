@@ -367,38 +367,23 @@ footer {
 /*============================*/
 
 .modal-contenido{
-
     position: relative;
-
     display: grid;
-
-    grid-template-columns: minmax(330px, 330px) minmax(0, 1fr);
-
-    width: min(1000px,95vw);
-
-    max-height: 90vh;
-
+    grid-template-columns: minmax(420px, 1fr) minmax(0, 1fr); /* antes: minmax(330px,330px) */
+    width: min(1000px, 95vw);
+    height: min(650px, 90vh);
     background: white;
-
     border-radius: 18px;
-
     overflow: hidden;
-
     box-shadow: 0 25px 60px rgba(0,0,0,.25);
-
 }
 
-/*============================*/
-
 .modal-imagen{
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
+    object-position: center;
     display: block;
-
 }
 
 /*============================*/
@@ -544,21 +529,24 @@ footer {
 /*============================*/
 
 .modal-footer{
-
     margin-top: auto;
-
-    padding-top: 2rem;
-
+    padding-top: 1.5rem;
+    border-top: 1px solid #ece6df;
 }
 
 .modal-precio{
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #8B5E3C; 
+}
 
-    font-size:2.6rem;
-
-    color:#8B5E3C;
-
-    font-weight:700;
-
+.modal-precio-label{
+    display: block;
+    font-size: .75rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: .3rem;
 }
 
 /*============================*/
@@ -681,6 +669,44 @@ footer {
 
 }
 
+/* ---------------- TABLETS ---------------- */
+
+@media (max-width: 1024px) {
+
+    /* NAV */
+
+    nav {
+        padding: 20px 30px;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    /* PRODUCTOS */
+
+    .card {
+        width: 300px;
+    }
+
+    /* MODAL */
+
+    .modal-contenido{
+        grid-template-columns: minmax(260px, 280px) minmax(0, 1fr);
+        width: min(700px, 90vw);
+        height: min(520px, 85vh);
+    }
+
+    .modal-titulo{
+        font-size: 2rem;
+    }
+
+    .modal-precio{
+        font-size: 2rem;
+    }
+
+}
+
 /* ---------------- MOVILES ---------------- */
 
 @media (max-width: 768px) {
@@ -689,72 +715,69 @@ footer {
 
     nav{
 
-            padding:20px;
+        padding:20px;
 
-            display:flex;
+        display:flex;
 
-            justify-content:space-between;
+        justify-content:space-between;
 
-            align-items:center;
-
-        }
-
-        .menu-toggle{
-
-            display:block;
-
-            font-size:2rem;
-
-            cursor:pointer;
-
-            z-index:1001;
-
-        }
-
-        .nav-links{
-
-            position:fixed;
-
-            top:72px;
-
-            left:0;
-
-            width:100%;
-
-            display:flex;
-
-            flex-direction:column;
-
-            align-items:center;
-
-            gap:20px;
-
-            background-color: rgba(47, 36, 31, 0.95);
-
-            backdrop-filter: blur(8px);
-
-            max-height:0;
-
-            overflow:hidden;
-
-            padding:0;
-
-            transition:max-height .35s ease,padding .35s ease;
-
-            z-index:999;
-
-        }
-
-        .nav-links.active{
-
-            max-height:500px;
-
-            padding:25px 0;
-
-        }
+        align-items:center;
 
     }
 
+    .menu-toggle{
+
+        display:block;
+
+        font-size:2rem;
+
+        cursor:pointer;
+
+        z-index:1001;
+
+    }
+
+    .nav-links{
+
+        position:fixed;
+
+        top:72px;
+
+        left:0;
+
+        width:100%;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:20px;
+
+        background-color: rgba(47, 36, 31, 0.95);
+
+        backdrop-filter: blur(8px);
+
+        max-height:0;
+
+        overflow:hidden;
+
+        padding:0;
+
+        transition:max-height .35s ease,padding .35s ease;
+
+        z-index:999;
+
+    }
+
+    .nav-links.active{
+
+        max-height:500px;
+
+        padding:25px 0;
+
+    }
 
     /* BOTONES */
 
@@ -772,12 +795,13 @@ footer {
         gap: 12px;
     }
 
-     .card {
+    .card {
         width: 100%;
         max-width: 450px;
     }
 
     /* WPP */
+
     .whatsapp-float{
 
         width:56px;
@@ -792,13 +816,69 @@ footer {
 
     }
 
+    /* MODAL */
 
+    .modal{
+        padding: 1rem;
+        align-items: center; 
+    }
 
+    .modal-contenido{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        max-height: 80vh;
+        border-radius: 18px; /* redondeado en las 4 esquinas */
+    }
 
+    .modal-imagen{
+        width: 100%;
+        aspect-ratio: 4 / 3; /* la misma proporción de tus fotos nuevas */
+        height: auto;
+    }
+
+    .modal-info{
+        padding: 1.3rem;
+        overflow-y: auto;
+    }
+
+    .modal-header{
+        margin-bottom: 1rem;
+    }
+
+    .modal-titulo{
+        font-size: 1.4rem;
+    }
+
+    .modal-descripcion{
+        font-size: .9rem;
+        line-height: 1.6;
+    }
+
+    .modal-seccion{
+        padding: 1rem 0;
+    }
+
+    .modal-precio{
+        font-size: 1.6rem;
+    }
+
+    .modal-cerrar{
+        top: .7rem;
+        right: .7rem;
+        width: 36px;
+        height: 36px;
+    }
+
+}
 
 /* ---------------- CELULARES CHICOS ---------------- */
 
 @media (max-width: 480px) {
+
+    /* NAV */
 
     .logo h2 {
         font-size: 1.5rem;
@@ -811,6 +891,8 @@ footer {
     nav a {
         font-size: 0.85rem;
     }
+
+    /* HERO */
 
     #hero {
         padding-top: 60px;
@@ -825,6 +907,8 @@ footer {
         font-size: 0.95rem;
     }
 
+    /* TITULOS DE SECCION */
+
     #productos h2,
     #especialidad h2,
     #contacto h2,
@@ -832,6 +916,8 @@ footer {
     .historia-content h2 {
         font-size: 2rem;
     }
+
+    /* FOOTER */
 
     .footer-links,
     .footer-social {
@@ -856,23 +942,68 @@ footer {
     .footer-container h3 {
         font-size: 1.5rem;
     }
+
+     /* MODAL */
+
+    .modal{
+        padding: .7rem;
+    }
+
+    .modal-contenido{
+        max-width: 340px;
+        max-height: 75vh;
+    }
+
+    .modal-imagen{
+        height: 130px;
+    }
+
+    .modal-info{
+        padding: 1rem;
+    }
+
+    .modal-header{
+        margin-bottom: .7rem;
+    }
+
+    .modal-titulo{
+        font-size: 1.2rem;
+    }
+
+    .modal-categoria{
+        font-size: .7rem;
+    }
+
+    .modal-descripcion{
+        font-size: .85rem;
+    }
+
+    .modal-seccion{
+        padding: .7rem 0;
+    }
+
+    .modal-subtitulo{
+        font-size: .9rem;
+    }
+
+    .modal-recomendacion{
+        font-size: .85rem;
+    }
+
+    .modal-precio{
+        font-size: 1.4rem;
+    }
+
+    .modal-precio-label{
+        font-size: .65rem;
+    }
+
+    .modal-cerrar{
+        top: .5rem;
+        right: .5rem;
+        width: 32px;
+        height: 32px;
+    }
+
 }
 
-/* ---------------- TABLETS ---------------- */
-
-@media (max-width: 1024px) {
-
-    nav {
-        padding: 20px 30px;
-    }
-
-    nav ul {
-        gap: 20px;
-    }
-
-    
-    .card {
-        width: 300px;
-    }
-
-}
